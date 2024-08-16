@@ -60,8 +60,13 @@ struct NewPostView: View {
         Button(action: {
             if(title != "" && post != "") {
                 let parameters: [String: Any] = [ "title": title, "post": post]
-                viewModel.createPost(parameters: parameters)
-                viewModel.fetchPost()
+                viewModel.createPost(parameters: parameters) {
+                       viewModel.fetchPost()
+                }
+//                viewModel.createPost(parameters: parameters)
+//                viewModel.fetchPost()
+//                DispatchQueue.main.sync{viewModel.createPost(parameters: parameters)}
+//                DispatchQueue.main.sync{viewModel.fetchPost()}
                 
                 isPresented.toggle()
                 

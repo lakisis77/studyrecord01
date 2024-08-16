@@ -48,7 +48,8 @@ class ViewModel: ObservableObject {
     }
     
     //MARK: - Create data
-    func createPost(parameters: [String: Any]) {
+    func createPost(parameters: [String: Any], completion: @escaping () -> Void) {
+    //    func createPost(parameters: [String: Any]) {
         guard let url = URL(string: "\(prefixURL)/createPost") else {
             print("Not Found URL")
             return
@@ -75,7 +76,7 @@ class ViewModel: ObservableObject {
                 } else {
                     print("No Data")
                 }
-                    
+            completion()
             } catch let JsonError {
                 print("fetch json error:", JsonError.localizedDescription)
             }
@@ -83,7 +84,7 @@ class ViewModel: ObservableObject {
     }
     
     //MARK: - Update data
-    func updatePost(parameters: [String: Any]) {
+    func updatePost(parameters: [String: Any], completion: @escaping () -> Void) {
         guard let url = URL(string: "\(prefixURL)/updatePost") else {
             print("Not Found URL")
             return
@@ -110,7 +111,7 @@ class ViewModel: ObservableObject {
                 } else {
                     print("No Data")
                 }
-                    
+            completion()
             } catch let JsonError {
                 print("fetch json error:", JsonError.localizedDescription)
             }
@@ -118,8 +119,8 @@ class ViewModel: ObservableObject {
     }
     
     //MARK: - Delete data
-    func deletePost(parameters: [String: Any]) {
-        guard let url = URL(string: "\(prefixURL)/updatePost") else {
+    func deletePost(parameters: [String: Any], completion: @escaping () -> Void) {
+        guard let url = URL(string: "\(prefixURL)/deletePost") else {
             print("Not Found URL")
             return
         }
@@ -145,7 +146,7 @@ class ViewModel: ObservableObject {
                 } else {
                     print("No Data")
                 }
-                    
+            completion()
             } catch let JsonError {
                 print("fetch json error:", JsonError.localizedDescription)
             }

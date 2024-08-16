@@ -51,8 +51,11 @@ struct DetailView: View {
             // update post
             if (title != "" && post != "") {
                 let parameters: [String: Any] = ["id": item.id, "title": title, "post": post]
-                viewModel.updatePost(parameters: parameters)
-                viewModel.fetchPost()
+                viewModel.updatePost(parameters: parameters) {
+                       viewModel.fetchPost()
+                }
+//                viewModel.updatePost(parameters: parameters)
+//                viewModel.fetchPost()
                 presentationMode.wrappedValue.dismiss()
                 
             }

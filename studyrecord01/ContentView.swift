@@ -51,7 +51,10 @@ struct HomeView: View {
         let id = indexSet.map { viewModel.items[$0].id}
         DispatchQueue.main.async {
             let parameters: [String: Any] = ["id": id[0]]
-            self.viewModel.deletePost(parameters: parameters)
+            viewModel.deletePost(parameters: parameters) {
+                   viewModel.fetchPost()
+            }
+            //            self.viewModel.deletePost(parameters: parameters)
             self.viewModel.fetchPost()
         }
     }
