@@ -14,6 +14,10 @@
 		F4B8C81D2C6C9EEE00EE4A61 /* studyrecord01Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C81C2C6C9EEE00EE4A61 /* studyrecord01Tests.swift */; };
 		F4B8C8272C6C9EEE00EE4A61 /* studyrecord01UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C8262C6C9EEE00EE4A61 /* studyrecord01UITests.swift */; };
 		F4B8C8292C6C9EEE00EE4A61 /* studyrecord01UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C8282C6C9EEE00EE4A61 /* studyrecord01UITestsLaunchTests.swift */; };
+		F4B8C8362C6C9F5200EE4A61 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C8352C6C9F5200EE4A61 /* Models.swift */; };
+		F4B8C8382C6CA01000EE4A61 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C8372C6CA01000EE4A61 /* ViewModel.swift */; };
+		F4B8C83A2C6CB35000EE4A61 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C8392C6CB35000EE4A61 /* NewPostView.swift */; };
+		F4B8C83C2C6CEF1000EE4A61 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8C83B2C6CEF1000EE4A61 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,11 @@
 		F4B8C8222C6C9EEE00EE4A61 /* studyrecord01UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = studyrecord01UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B8C8262C6C9EEE00EE4A61 /* studyrecord01UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyrecord01UITests.swift; sourceTree = "<group>"; };
 		F4B8C8282C6C9EEE00EE4A61 /* studyrecord01UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyrecord01UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4B8C8352C6C9F5200EE4A61 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F4B8C8372C6CA01000EE4A61 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F4B8C8392C6CB35000EE4A61 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		F4B8C83B2C6CEF1000EE4A61 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F4B8C83F2C6CF6E400EE4A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +104,16 @@
 		F4B8C8092C6C9EED00EE4A61 /* studyrecord01 */ = {
 			isa = PBXGroup;
 			children = (
+				F4B8C83F2C6CF6E400EE4A61 /* Info.plist */,
 				F4B8C80A2C6C9EED00EE4A61 /* studyrecord01App.swift */,
 				F4B8C80C2C6C9EED00EE4A61 /* ContentView.swift */,
 				F4B8C80E2C6C9EEE00EE4A61 /* Assets.xcassets */,
 				F4B8C8102C6C9EEE00EE4A61 /* studyrecord01.entitlements */,
 				F4B8C8112C6C9EEE00EE4A61 /* Preview Content */,
+				F4B8C8352C6C9F5200EE4A61 /* Models.swift */,
+				F4B8C8372C6CA01000EE4A61 /* ViewModel.swift */,
+				F4B8C8392C6CB35000EE4A61 /* NewPostView.swift */,
+				F4B8C83B2C6CEF1000EE4A61 /* DetailView.swift */,
 			);
 			path = studyrecord01;
 			sourceTree = "<group>";
@@ -259,8 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B8C8362C6C9F5200EE4A61 /* Models.swift in Sources */,
+				F4B8C83C2C6CEF1000EE4A61 /* DetailView.swift in Sources */,
 				F4B8C80D2C6C9EED00EE4A61 /* ContentView.swift in Sources */,
+				F4B8C8382C6CA01000EE4A61 /* ViewModel.swift in Sources */,
 				F4B8C80B2C6C9EED00EE4A61 /* studyrecord01App.swift in Sources */,
+				F4B8C83A2C6CB35000EE4A61 /* NewPostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,8 +438,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"studyrecord01/Preview Content\"";
+				DEVELOPMENT_TEAM = Z5A68NKP74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = studyrecord01/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -456,8 +476,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"studyrecord01/Preview Content\"";
+				DEVELOPMENT_TEAM = Z5A68NKP74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = studyrecord01/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
