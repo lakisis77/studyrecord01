@@ -6,14 +6,28 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 struct ContentView: View {
+    @AppStorage("signIn") var isSignIn = false
+    @AppStorage("email") var email = ""
+    
     var body: some View {
-        HomeView()
+        if !isSignIn {
+            LoginScreen()
+        } else {
+            HomeView()
+        }
+            
+//        HomeView()
     }
 }
 
 struct HomeView: View {
+    var email = UserDefaults.standard.string(forKey: "email") ?? ""
+    
     @EnvironmentObject var viewModel: ViewModel
     @State var isPresentedNewPost = false
     @State var title = ""
@@ -40,8 +54,11 @@ struct HomeView: View {
                 viewModel.fetchPost()
             }
             
-            .navigationBarTitle("Posts")
+//            .navigationBarTitle("Posts")
+            
+            .navigationBarTitle(email)
             .navigationBarItems(trailing: plusButton)
+            .navigationBarItems(leading: logoutButton)
         }.sheet(isPresented: $isPresentedNewPost, content: {
             NewPostView(isPresented: $isPresentedNewPost, title: $title, post: $post)
         })
@@ -63,6 +80,18 @@ struct HomeView: View {
         Button(action: {
             isPresentedNewPost.toggle()
         }, label: {Image(systemName: "plus")})
+    }
+    
+    var logoutButton: some View {
+        Button(action: {
+            let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+              print("Error signing out: %@", signOutError)
+            }
+            UserDefaults.standard.set(false, forKey: "signIn")
+        }, label: {Image(systemName: "rectangle.portrait.and.arrow.forward")})
     }
 }
 

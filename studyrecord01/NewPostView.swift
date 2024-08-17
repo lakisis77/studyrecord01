@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct NewPostView: View {
     @EnvironmentObject var viewModel: ViewModel
@@ -19,6 +20,7 @@ struct NewPostView: View {
             ZStack {
                 Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading) {
+                    
                     Text("Create New Post")
                         .font(Font.system(size: 16, weight:  .bold))
                     
