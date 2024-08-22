@@ -12,21 +12,24 @@ import GoogleSignIn
 
 struct ContentView: View {
     @AppStorage("signIn") var isSignIn = false
-    @AppStorage("email") var email = ""
+//    @AppStorage("email") var email = ""
     
     var body: some View {
-        if !isSignIn {
-            LoginScreen()
-        } else {
-            HomeView()
+//        if !isSignIn {
+//            LoginScreen()
+//        } else {
+            ResponsiveView { props in
+                Home(props: props)
         }
+            //            HomeView()
+//        }
             
 //        HomeView()
     }
 }
 
 struct HomeView: View {
-    var email = UserDefaults.standard.string(forKey: "email") ?? ""
+//    var email = UserDefaults.standard.string(forKey: "email") ?? ""
     
     @EnvironmentObject var viewModel: ViewModel
     @State var isPresentedNewPost = false
@@ -54,9 +57,9 @@ struct HomeView: View {
                 viewModel.fetchPost()
             }
             
-//            .navigationBarTitle("Posts")
+            .navigationBarTitle("Posts")
             
-            .navigationBarTitle(email)
+//            .navigationBarTitle(email)
             .navigationBarItems(trailing: plusButton)
             .navigationBarItems(leading: logoutButton)
         }.sheet(isPresented: $isPresentedNewPost, content: {
@@ -94,7 +97,7 @@ struct HomeView: View {
         }, label: {Image(systemName: "rectangle.portrait.and.arrow.forward")})
     }
 }
-
-#Preview {
-    ContentView()
-}
+//
+//#Preview {
+//    ContentView()
+//}

@@ -11,6 +11,8 @@ import FirebaseAuth
 import GoogleSignIn
 
 struct LoginScreen: View {
+    @EnvironmentObject var viewModel: ViewModel
+//    @StateObject var viewModel: ViewModel
     @State var username: String = ""
     @State var password: String = ""
     
@@ -54,12 +56,13 @@ struct LoginScreen: View {
                       }
 
                       guard let user = result?.user,
-                        let idToken = user.idToken?.tokenString
+                         let idToken = user.idToken?.tokenString
+                         
                       else {
                         // ...
                           return
                       }
-                        
+                                              
 //                        print(user)
                       let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                                      accessToken: user.accessToken.tokenString)
@@ -75,18 +78,21 @@ struct LoginScreen: View {
                             }
                         
 //                            username = user.profile?.email
-                            guard let email = user.profile?.email
-                            else {
-                                return
-                            }
+                            let email = user.profile?.email ?? ""
+                            
                             
 //                            username = email
                             
                             print("로그인 성공")
-                            print(username)
+                            print(email)
+                            print(idToken)
                             
                             UserDefaults.standard.set(email, forKey: "email")
 //                            @AppStorage("email") var email = email
+                            
+                            let parameters: [String: Any] = [ "email": email, "idToken": idToken]
+                            viewModel.loginInfo(parameters: parameters)
+                            
                             UserDefaults.standard.set(true, forKey: "signIn")
                         }
                     }

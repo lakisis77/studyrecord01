@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40E64902C76C7880056C9DC /* ResponsiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E648F2C76C7880056C9DC /* ResponsiveView.swift */; };
+		F40E64922C76CBF50056C9DC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E64912C76CBF50056C9DC /* Home.swift */; };
+		F40E64972C76E8200056C9DC /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E64962C76E8200056C9DC /* Info.swift */; };
 		F41D6E6D2C7043BE00E42466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F41D6E6C2C7043BE00E42466 /* GoogleService-Info.plist */; };
 		F41D6E702C7044A600E42466 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D6E6F2C7044A600E42466 /* LoginScreen.swift */; };
 		F41D6E732C70452100E42466 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D6E722C70452100E42466 /* CustomButton.swift */; };
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F40E648F2C76C7880056C9DC /* ResponsiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsiveView.swift; sourceTree = "<group>"; };
+		F40E64912C76CBF50056C9DC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F40E64962C76E8200056C9DC /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		F41D6E6C2C7043BE00E42466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F41D6E6F2C7044A600E42466 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		F41D6E722C70452100E42466 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -103,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40E64952C76E7F90056C9DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4B8C8352C6C9F5200EE4A61 /* Models.swift */,
+				F40E64962C76E8200056C9DC /* Info.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F41D6E6E2C70448900E42466 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +133,8 @@
 				F41D6E752C70454100E42466 /* CustomTextfield.swift */,
 				F41D6E742C70454100E42466 /* GoogleSiginBtn.swift */,
 				F41D6E762C70454100E42466 /* LoginHeader.swift */,
+				F40E648F2C76C7880056C9DC /* ResponsiveView.swift */,
+				F40E64912C76CBF50056C9DC /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +172,7 @@
 		F4B8C8092C6C9EED00EE4A61 /* studyrecord01 */ = {
 			isa = PBXGroup;
 			children = (
+				F40E64952C76E7F90056C9DC /* Model */,
 				F41D6E7D2C7048D600E42466 /* Helper */,
 				F41D6E712C7044FD00E42466 /* View */,
 				F41D6E6E2C70448900E42466 /* Screen */,
@@ -164,7 +182,6 @@
 				F4B8C80E2C6C9EEE00EE4A61 /* Assets.xcassets */,
 				F4B8C8102C6C9EEE00EE4A61 /* studyrecord01.entitlements */,
 				F4B8C8112C6C9EEE00EE4A61 /* Preview Content */,
-				F4B8C8352C6C9F5200EE4A61 /* Models.swift */,
 				F4B8C8372C6CA01000EE4A61 /* ViewModel.swift */,
 				F4B8C8392C6CB35000EE4A61 /* NewPostView.swift */,
 				F4B8C83B2C6CEF1000EE4A61 /* DetailView.swift */,
@@ -338,11 +355,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F41D6E7F2C7048EC00E42466 /* AppDelegate.swift in Sources */,
+				F40E64972C76E8200056C9DC /* Info.swift in Sources */,
 				F41D6E782C70454100E42466 /* CustomTextfield.swift in Sources */,
 				F4B8C8362C6C9F5200EE4A61 /* Models.swift in Sources */,
 				F4B8C83C2C6CEF1000EE4A61 /* DetailView.swift in Sources */,
+				F40E64902C76C7880056C9DC /* ResponsiveView.swift in Sources */,
 				F41D6E792C70454100E42466 /* LoginHeader.swift in Sources */,
 				F41D6E862C704D2900E42466 /* +View.swift in Sources */,
+				F40E64922C76CBF50056C9DC /* Home.swift in Sources */,
 				F4B8C80D2C6C9EED00EE4A61 /* ContentView.swift in Sources */,
 				F4B8C8382C6CA01000EE4A61 /* ViewModel.swift in Sources */,
 				F41D6E732C70452100E42466 /* CustomButton.swift in Sources */,

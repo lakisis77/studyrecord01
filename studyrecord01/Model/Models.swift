@@ -19,3 +19,9 @@ struct PostModel: Decodable {
     let title: String
     let post: String
 }
+
+struct apikeyModel: Decodable {
+    let error: Bool
+    let message: String
+    let apikey: String
+}

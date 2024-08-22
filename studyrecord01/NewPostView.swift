@@ -61,7 +61,7 @@ struct NewPostView: View {
     var trailing: some View {
         Button(action: {
             if(title != "" && post != "") {
-                let parameters: [String: Any] = [ "title": title, "post": post]
+                var parameters: [String: Any] = [ "title": title, "post": post]
                 viewModel.createPost(parameters: parameters) {
                        viewModel.fetchPost()
                 }
