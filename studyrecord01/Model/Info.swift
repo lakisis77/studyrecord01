@@ -23,3 +23,4 @@ var infos: [Info] = [
     Info(title: "Dine in", amount: "$204", percentage: 10, icon: "fork.knife", iconColor: Color.red),
     Info(title: "Take away", amount: "$134", percentage: 5, icon: "takeoutbag.and.cup.and.straw.fill", iconColor: Color.yellow)
 ]
+
