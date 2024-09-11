@@ -10,13 +10,18 @@ import SwiftUI
 struct LoginHeader: View {
     var body: some View {
         VStack {
-            Text("학습기록")
+            Text("미카운터")
                 .font(.largeTitle)
                 .fontWeight(.medium)
-                .padding()
+
+            Text("기록은 모두 옳다")
+                .font(.title2)
+                .fontWeight(.medium)
+
             
             Text("환영합니다. \n구글 아이디로 로그인해주세요.")
                 .multilineTextAlignment(.center)
+                .padding()
         }
     }
 }

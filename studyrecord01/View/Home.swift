@@ -73,6 +73,9 @@ struct Home: View {
                 .refreshable {
                     viewModel.refresh()
                 }
+//                .onAppear {
+//                    viewModel.refresh()
+//                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background {
@@ -700,6 +703,8 @@ struct Home: View {
                 TimerecordView()}
             .padding()
             
+            // MARK: 로그아웃
+            
             Button(action: {
                 let firebaseAuth = Auth.auth()
                 do {
@@ -708,6 +713,12 @@ struct Home: View {
                     print("Error signing out: %@", signOutError)
                 }
                 UserDefaults.standard.set(false, forKey: "signIn")
+                
+                viewModel.items = [PostModel]()
+                viewModel.timerecords = [TimerecordModel]()
+                viewModel.durations = [DurationModel]()
+                UserDefaults.standard.set("", forKey: "apikey")
+                
             }, label: {
                 VStack {
                     Image(systemName: "rectangle.portrait.and.arrow.forward")

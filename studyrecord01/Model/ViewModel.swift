@@ -157,14 +157,11 @@ class ViewModel: ObservableObject {
             }
         }.resume()
     }
-    
-    
-    //MARK: - Login
-    func loginInfo(parameters: [String: Any]) {
-    //    func createPost(parameters: [String: Any]) {
+
+    func loginInfo(parameters: [String: Any]) -> Bool {
         guard let url = URL(string: "\(prefixURL)/login") else {
             print("Not Found URL")
-            return
+            return false
         }
         
         let data = try! JSONSerialization.data(withJSONObject: parameters)
@@ -173,32 +170,77 @@ class ViewModel: ObservableObject {
         request.httpBody = data
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        let semaphore = DispatchSemaphore(value: 0)
+        var success = false
+        
         URLSession.shared.dataTask(with: request) { (data, res, error) in
-            if(error != nil) {
-                print("error", error?.localizedDescription ?? "")
+            if let error = error {
+                print("error", error.localizedDescription)
+                semaphore.signal()
                 return
             }
             
             do {
                 if let data = data {
-                    let result = try JSONDecoder().decode(apikeyModel.self,from: data)
-                    DispatchQueue.main.async {
-                        let value = result.apikey
-                        print(result)
-                        print(value)
-                        UserDefaults.standard.set(value, forKey: "apikey")
-                    }
-                    
-                    
+                    let result = try JSONDecoder().decode(apikeyModel.self, from: data)
+                    let value = result.apikey
+                    print(result)
+                    print(value)
+                    UserDefaults.standard.set(value, forKey: "apikey")
+                    success = true
                 } else {
                     print("No Data")
                 }
-            
-            } catch let JsonError {
-                print("fetch json error:", JsonError.localizedDescription)
+            } catch let jsonError {
+                print("fetch json error:", jsonError.localizedDescription)
             }
+            semaphore.signal()
         }.resume()
+        
+        semaphore.wait()
+        return success
     }
+    
+    // MARK: - Login async
+//    func loginInfo(parameters: [String: Any], completion: @escaping () -> Void)  {
+//    //    func createPost(parameters: [String: Any]) {
+//        guard let url = URL(string: "\(prefixURL)/login") else {
+//            print("Not Found URL")
+//            return
+//        }
+//        
+//        let data = try! JSONSerialization.data(withJSONObject: parameters)
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.httpBody = data
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        
+//        URLSession.shared.dataTask(with: request) { (data, res, error) in
+//            if(error != nil) {
+//                print("error", error?.localizedDescription ?? "")
+//                return
+//            }
+//            
+//            do {
+//                if let data = data {
+//                    let result = try JSONDecoder().decode(apikeyModel.self,from: data)
+//                    DispatchQueue.main.async {
+//                        let value = result.apikey
+//                        print(result)
+//                        print(value)
+//                        UserDefaults.standard.set(value, forKey: "apikey")
+//                    }
+//                    
+//                    
+//                } else {
+//                    print("No Data")
+//                }
+//            completion()
+//            } catch let JsonError {
+//                print("fetch json error:", JsonError.localizedDescription)
+//            }
+//        }.resume()
+//    }
     
     //MARK: - Delete data
     func deletePost(parameters: [String: Any], completion: @escaping () -> Void) {

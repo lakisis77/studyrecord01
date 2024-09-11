@@ -11,16 +11,19 @@ import FirebaseAuth
 import GoogleSignIn
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: ViewModel
     @AppStorage("signIn") var isSignIn = false
 //    @AppStorage("email") var email = ""
     
     var body: some View {
-//        if !isSignIn {
-//            LoginScreen()
-//        } else {
+        if !isSignIn {
+            
+            LoginScreen()
+        } else {
+            
             ResponsiveView { props in
                 Home(props: props) }
-//        }
+        }
 
     }
 }
